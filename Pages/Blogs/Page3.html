@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Future in CS</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --base-color-100: #DBCAAC;
+            --base-color-200: #BEAB8B;
+            --base-color-300: #918C76;
+
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
+
+            --accent-color-100: #79452F;
+            --accent-color-200: #512d1e;
+
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+
+            --font-body: "Poppins", "Roboto", sans-serif;
+            --font-heading: "Gravitas One", "Crimson Text", serif;
+
+            --text-size-body: 20px;
+            --text-lh-body: 28px;
+            --text-size-heading: 2.5rem;
+            --text-lh-heading: 1.3;
+        }
+
+        /* Reset & Layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--base-color-100);
+            font-family: var(--font-body);
+            font-size: var(--text-size-body);
+            line-height: var(--text-lh-body);
+            color: var(--primary-color-100);
+            padding: 60px 10%;
+        }
+
+        .blog-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .footer-nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    border-top: 2px solid var(--secondary-color-100);
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    color: var(--primary-color-100); /* Your Dark Brown */
+    text-decoration: none;
+    font-size: 1.1rem; /* Smaller size */
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color-100); /* Changes to Red-Brown on hover */
+    border-bottom: 2px solid var(--accent-color-100);
+    transform: translateY(-2px);
+}
+
+        /* Header Style */
+        header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-size-heading);
+            line-height: var(--text-lh-heading);
+            color: var(--primary-color-100);
+            border-bottom: 4px solid var(--accent-color-100);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .header-info {
+            font-size: 0.9em;
+            color: var(--secondary-color-200);
+            display: flex;
+            gap: 20px;
+            margin-top: -5px;
+            margin-bottom: 40px;
+        }
+
+        .header-name { font-weight: 600; }
+
+        /* Typography Components */
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--accent-color-200);
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            background: var(--base-color-200);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            transition: 0.3s ease;
+            border-left: 0 solid var(--secondary-color-100);
+        }
+
+        p:hover {
+            background: var(--base-color-300);
+            transform: translateY(-4px);
+            border-left: 8px solid var(--secondary-color-100);
+        }
+
+        abbr {
+            text-decoration: none;
+            border-bottom: 2px dashed var(--accent-color-100);
+            cursor: help;
+            color: var(--primary-color-200);
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: var(--secondary-color-100);
+            opacity: 0.3;
+            margin: 50px 0;
+        }
+
+        @media(max-width:768px){
+            body { padding: 40px 5%; }
+            header h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+  <div class="blog-container">
+
+    <header>
+      <h2>My Dream Life as A Future Working Computer Science Graduate</h2>
+      <div class="header-info"> 
+        <span class="header-name">De Leon Kenxie Jermaine S.</span>
+        <span class="header-date">31 January 2026</span>
+      </div>
+    </header>
+      
+    <div class="section-title">The Present</div>
+    <p>
+        I am currently a 2nd year Computer Science student. And I am at that point where I question what my future would look like. As a reference, I always wanted to have what my brother has, who graduated studying Computer Science. My brother currently is living well off, traveling with his family, and is having fun doing what he likes. Because of that, I want to have that lifestyle as well.
+    </p>
+      
+    <hr>
+
+    <div class="section-title">Future Challenges and Worries</div>
+    <p>
+        Right now, with the rise of <abbr title="Artificial Intelligence">AI</abbr>, a lot of jobs are currently getting overthrown. I am worried that because of this, job hunting is going to be a lot harder. I have also heard from current graduates struggling to even find jobs because of having impossible job requirements or the market being too competitive and saturated. 
+    </p>
+    <p>
+        I also think: what if I don't enjoy what I am doing and just wasted my degree? There are also hidden problems that could affect my career or even my life—sickness, financial problems, and even global instability with currently what's happening outside of the Philippines.
+    </p>
+      
+    <hr>
+      
+    <div class="section-title">The Dream</div>
+    <p>
+        My dream as a Computer Science student is to have a stable enough income that can make me provide financial help to my family in the future. I also want to be at a point where I am financially stable enough to travel the world while having a job that is fun to do. 
+    </p>
+    <p>
+        When you think about the future, you always start to worry or overthink, but I see it as a challenge you have to overcome to achieve this dream. A dream is not something you can achieve overnight; you have to overcome challenges and sacrifice things to reach it. Those challenges and sacrifices are things I am prepared to face to achieve that dream of mine.
+    </p>
+        
+  </div>
+<div class="footer-nav">
+    <a href="Page2.html" class="nav-link">← Go back to Blog 2</a>
+    <a href="Page4.html" class="nav-link">Go to Blog 4 →</a>
+</div>
+</body>
+</html>   

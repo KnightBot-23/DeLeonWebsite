@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSTIE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    padding-top: 80px; 
+    background: url('arrangement-vintage-cassette-tapes.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    height: 80px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.about {
+    width: 50%;
+    min-height: 100vh;
+    padding-left: 150px;       /* aligns with De Leon */
+    padding-top: 40px;         /* small breathing room */
+    padding-right: 70px;
+    background: rgb(8, 49, 59); /* optional pink overlay */
+}
+
+.about-text {
+    max-width: 500px;       
+    color: #fdfdfdba;
+}
+
+.about-text h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.logo {
+    font-size: 2em;
+    color: rgb(8, 49, 59);
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: rgb(9, 11, 11);
+    text-decoration: none;
+    font-weight: 1000;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width:  100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+
+}
+</style>
+<body>
+
+
+    <header>
+        <h1> WORK IN PROGRESS</h1>
+        <h2 class="logo">De Leon</h2>
+        <nav class="navigation">
+            <a href="index.html" >Photo Gallery</a>
+            <a href="Biography.html" >About</a>
+            <a href="Pages/Blogs/Page1.html" >Works</a>
+            <a href="">Contacts</a>
+        </nav>
+    </header>
+
+    <section class="about">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p> 
+                Hello, And welcome to my website. My name is De Leon Kenxie Jermaine S. 21 years old and currently studying as a 2nd year Computer Science student.
+            </p>
+        </div>
+    </section>
+
+
+
+
+</body>
+</html>
