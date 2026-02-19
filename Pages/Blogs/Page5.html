@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Top 3 Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --base-color-100: #DBCAAC;
+            --base-color-200: #BEAB8B;
+            --primary-color-100: #351D11;
+            --primary-color-200: #2b180e;
+            --accent-color-100: #79452F;
+            --font-body: "Poppins", sans-serif;
+            --font-heading: "Gravitas One", serif;
+        }
+
+        body {
+            background-color: var(--base-color-200); 
+            color: var(--primary-color-200);
+            font-family: var(--font-body);
+            margin: 0;
+            padding: 40px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 2px solid var(--primary-color-200);
+            padding-bottom: 20px;
+        }
+
+        h1.page-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin: 0;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .movie-card {
+            background-color: var(--base-color-100);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .footer-nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-top: 20px;
+    border-top: 2px solid var(--secondary-color-100);
+}
+
+.nav-link {
+    font-family: var(--font-heading);
+    color: var(--primary-color-100); /* Your Dark Brown */
+    text-decoration: none;
+    font-size: 1.1rem; /* Smaller size */
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+      
+
+        /* IMAGE FIX: Ensure high sharpness and proper fit */
+        .card-image {
+            width: 100%;
+            height: 450px; /* Increased height for better poster quality */
+            object-fit: cover;
+            object-position: top;
+            image-rendering: -webkit-optimize-contrast; /* Keeps images sharp */
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .genre-tag {
+            background-color: var(--accent-color-100);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .movie-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--accent-color-100);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .video-box {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: auto;
+        }
+
+        .video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 class="page-title">My Top 3 Movies</h1>
+        </header>
+
+        <section class="movie-grid">
+            <article class="movie-card">
+                <img src="../../Assets/spiritedaway.jpg" class="card-image" alt="Spirited Away">
+                <div class="card-content">
+                    <div class="genre-tag">Animation / Fantasy</div>
+                    <h2 class="movie-title">Spirited Away</h2>
+                    <span class="info-label">Director</span> Hayao Miyazaki
+                    <span class="info-label">Stars</span> Rumi Hiiragi, Miyu Irino
+                    <span class="info-label">Synopsis</span>
+                    <p class="description">10-year-old Chihiro and her parents stumble upon what seems to be an abandoned amusement park. When her parents are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings and that she must work there to save herself and her parents</p>
+                    <div class="video-box">
+                        <iframe src="https://www.youtube.com/embed/ByXuk9QqQkk" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
+
+            <article class="movie-card">
+                <img src="../../Assets/allatonce.jpg" class="card-image" alt="EEAAO">
+                <div class="card-content">
+                    <div class="genre-tag">Sci-Fi / Action</div>
+                    <h2 class="movie-title">Everything Everywhere All At Once</h2>
+                    <span class="info-label">Director</span> Michelle Yeoh, Ke Huy Quan, Stephanie Hsu
+                    <span class="info-label">Stars</span> Michelle Yeoh, Ke Huy Quan
+                    <span class="info-label">Synopsis</span>
+                    <p class="description">When an interdimensional rupture unravels reality, an unlikely hero must channel her newfound powers to fight bizarre and bewildering dangers from the multiverse as the fate of the world hangs in the balance.</p>
+                    <div class="video-box">
+                        <iframe src="https://www.youtube.com/embed/wxN1T1uxQ2g" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
+
+            <article class="movie-card">
+                <img src="../../Assets/KFP2.jpg" class="card-image" alt="Kung Fu Panda 2">
+                <div class="card-content">
+                    <div class="genre-tag">Animation / Action</div>
+                    <h2 class="movie-title">Kung Fu Panda 2</h2>
+                    <span class="info-label">Director</span> Jennifer Yuh Nelson
+                    <span class="info-label">Stars</span> Jack Black, Angelina Jolie, Jackie Chan, Gary Oldman
+                    <span class="info-label">Synopsis</span>
+                    <p class="description">Now known as the Dragon Warrior, Po protects the Valley of Peace alongside his friends and fellow kung fu masters, the Furious Five. However, a dangerous villain threatens Po's awesome new life with plans to use a secret weapon to wipe out the martial art and conquer China. In order to defeat the new enemy, Po finds he must recall his past and unlock secrets of his mysterious origins; only then will he find the strength to vanquish his foe.</p>
+                    <div class="video-box">
+                        <iframe src="https://www.youtube.com/embed/YIW5oo-8NYw" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+<div class="footer-nav">
+    <a href="Page4.html" class="nav-link">← Go back to Blog 4</a>
+    <a href="Page6.html" class="nav-link">Go to Blog 6→</a>
+</div>
+</body>
+</html>
