@@ -4,44 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Top 3 Movies</title>
-    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --base-color-100: #DBCAAC;
             --base-color-200: #BEAB8B;
-            --primary-color-100: #351D11;
-            --primary-color-200: #2b180e;
+            --base-color-300: #918C76;
+
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
+
             --accent-color-100: #79452F;
+            --accent-color-200: #512d1e;
+
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+
+            /* Unified Nav Colors */
+            --header-bg: var(--primary-color-100); 
+            --header-text: var(--base-color-100);
+
             --font-body: "Poppins", sans-serif;
             --font-heading: "Gravitas One", serif;
+        }
+
+        /* Reset & Layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             background-color: var(--base-color-100); 
             color: var(--primary-color-200);
             font-family: var(--font-body);
-            margin: 0;
-            padding: 40px 5%;
+            padding-top: 100px; /* Space for fixed nav */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .container {
-            max-width: 1100px;
+        /* --- NAVIGATION (Unified Site Style) --- */
+        .site-nav {
+            background: var(--header-bg);
+            position: fixed;
+            top: 0;
             width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 10%; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        header {
+        .nav-logo {
+            font-family: var(--font-heading);
+            color: var(--header-text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .site-nav a, .dropbtn {
+            color: var(--header-text);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            background: none; border: none; cursor: pointer;
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--base-color-200);
+            right: 0;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-top: 3px solid var(--accent-color-100);
+        }
+        .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- MOVIE CONTENT --- */
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin-bottom: 60px;
+        }
+
+        header.page-header {
             text-align: center;
             margin-bottom: 50px;
-            border-bottom: 2px solid var(--primary-color-200);
+            border-bottom: 4px solid var(--accent-color-100);
             padding-bottom: 20px;
         }
 
         h1.page-title {
             font-family: var(--font-heading);
             font-size: 3.5rem;
+            color: var(--primary-color-100);
             margin: 0;
         }
 
@@ -58,43 +132,19 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
-      .footer-nav {
-    display: flex;
-    /* This pushes the first link to the left and the second to the right */
-    justify-content: space-between; 
-    align-items: center;
-    margin-top: 60px;
-    padding-top: 30px;
-    /* FIX: Changed --secondary-color-100 to --primary-color-200 to match your design */
-    border-top: 2px solid var(--primary-color-200); 
-    width: 100%;
-}
 
-.nav-link {
-    font-family: var(--font-heading);
-    color: var(--primary-color-100);
-    text-decoration: none;
-    /* Increased font size to match the screenshot's weight */
-    font-size: 1.4rem; 
-    transition: all 0.3s ease;
-}
+        .movie-card:hover {
+            transform: translateY(-10px);
+        }
 
-.nav-link:hover {
-    color: var(--accent-color-100);
-    /* Keeps the hover effect subtle without adding a bottom border */
-    opacity: 0.8;
-}
- 
-      
-
-        /* IMAGE FIX: Ensure high sharpness and proper fit */
         .card-image {
             width: 100%;
-            height: 450px; /* Increased height for better poster quality */
+            height: 450px; 
             object-fit: cover;
             object-position: top;
-            image-rendering: -webkit-optimize-contrast; /* Keeps images sharp */
+            image-rendering: -webkit-optimize-contrast;
         }
 
         .card-content {
@@ -119,6 +169,7 @@
         .movie-title {
             font-family: var(--font-heading);
             font-size: 1.8rem;
+            color: var(--primary-color-100);
             margin: 0 0 10px 0;
         }
 
@@ -135,6 +186,7 @@
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 20px;
+            text-align: justify;
         }
 
         .video-box {
@@ -151,12 +203,57 @@
             height: 100%;
             border: none;
         }
+
+        /* Footer Nav */
+        .footer-nav {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid var(--primary-color-200); 
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            color: var(--primary-color-100);
+            text-decoration: none;
+            font-size: 1.2rem; 
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color-100);
+            border-bottom: 2px solid var(--accent-color-100);
+        }
+
+        @media(max-width:768px){
+            body { padding-top: 80px; }
+            h1.page-title { font-size: 2.2rem; }
+            .site-nav { padding: 10px 5%; }
+        }
     </style>
 </head>
 <body>
 
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">De Leon</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Blog Stories ▾</button>
+                <div class="dropdown-content">
+                    <a href="Page1.html">Blog 1</a>
+                    <a href="Page2.html">Blog 2</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <header>
+        <header class="page-header">
             <h1 class="page-title">My Top 3 Movies</h1>
         </header>
 
@@ -169,7 +266,7 @@
                     <span class="info-label">Director</span> Hayao Miyazaki
                     <span class="info-label">Stars</span> Rumi Hiiragi, Miyu Irino
                     <span class="info-label">Synopsis</span>
-                    <p class="description">10-year-old Chihiro and her parents stumble upon what seems to be an abandoned amusement park. When her parents are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings and that she must work there to save herself and her parents</p>
+                    <p class="description">10-year-old Chihiro and her parents stumble upon what seems to be an abandoned amusement park. When her parents are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings and that she must work there to save herself and her parents.</p>
                     <div class="video-box">
                         <iframe src="https://www.youtube.com/embed/Jcr1putnC1s?si=w3e0USrLG_R32ueM" allowfullscreen></iframe>
                     </div>
@@ -199,19 +296,19 @@
                     <span class="info-label">Director</span> Jennifer Yuh Nelson
                     <span class="info-label">Stars</span> Jack Black, Angelina Jolie, Jackie Chan, Gary Oldman
                     <span class="info-label">Synopsis</span>
-                    <p class="description">Now known as the Dragon Warrior, Po protects the Valley of Peace alongside his friends and fellow kung fu masters, the Furious Five. However, a dangerous villain threatens Po's awesome new life with plans to use a secret weapon to wipe out the martial art and conquer China. In order to defeat the new enemy, Po finds he must recall his past and unlock secrets of his mysterious origins; only then will he find the strength to vanquish his foe.</p>
+                    <p class="description">Now known as the Dragon Warrior, Po protects the Valley of Peace alongside his friends and fellow kung fu masters. However, a dangerous villain threatens Po's awesome new life with plans to use a secret weapon to conquer China.</p>
                     <div class="video-box">
                         <iframe src="https://www.youtube.com/embed/ANmNtzyVyaY?si=2NTloN9Td4lzGpQy" allowfullscreen></iframe>
                     </div>
                 </div>
             </article>
         </section>
+
+        <div class="footer-nav">
+            <a href="Page4.html" class="nav-link">← Go back to Blog 4</a>
+            <a href="Page6.html" class="nav-link">Go to Blog 6 →</a>
+        </div>
     </div>
 
-
-<div class="footer-nav">
-    <a href="Page4.html" class="nav-link">← Go back to Blog 4</a>
-    <a href="Page6.html" class="nav-link">Go to Blog 6→</a>
-</div>
 </body>
 </html>

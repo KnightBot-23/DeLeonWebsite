@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Hub | De Leon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Gravitas+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --base-color-100: #DBCAAC;
+            --base-color-200: #BEAB8B;
+            --base-color-300: #918C76;
+
+            --primary-color-100: #351D11;
+            --primary-color-200: #2b180e;
+
+            --accent-color-100: #79452F;
+            --accent-color-200: #512d1e;
+
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+
+            --header-bg: var(--primary-color-100); 
+            --header-text: var(--base-color-100);
+
+            --font-body: "Poppins", "Roboto", sans-serif;
+            --font-heading: "Gravitas One", "Crimson Text", serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--base-color-100);
+            color: var(--primary-color-100);
+            font-family: var(--font-body);
+        }
+
+        /* Header matching the image provided */
+        header {
+            background-color: var(--header-bg);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            color: var(--header-text);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+        }
+
+        .nav-top-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-top-links a {
+            color: var(--header-text);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            color: var(--primary-color-100);
+        }
+
+        /* Selection Cards Container */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .media-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            background-color: var(--base-color-200);
+            height: 250px;
+            border: 1px solid var(--primary-color-100);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .media-card h2 {
+            font-family: var(--font-heading);
+            color: var(--primary-color-100);
+            font-size: 1.8rem;
+            margin: 0;
+            z-index: 2;
+            transition: color 0.4s ease;
+        }
+
+        /* Hover Effects */
+        .media-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0%;
+            background-color: var(--primary-color-100);
+            transition: all 0.4s ease;
+            z-index: 1;
+        }
+
+        .media-card:hover::before {
+            height: 100%;
+        }
+
+        .media-card:hover h2 {
+            color: var(--base-color-100);
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">De Leon</div>
+    <div class="nav-top-links">
+        <a href="index.html">Home</a>
+        <a href="#">Blog Stories ▾</a>
+    </div>
+</header>
+
+<div class="hero-section">
+    <h1>Explore My <br>Favorite Songs,Movies and TV Shows</h1>
+
+    <div class="selection-grid">
+        <a href="Page4.html" class="media-card">
+            <h2>MYBEATS</h2>
+        </a>
+
+        <a href="Page5.html" class="media-card">
+            <h2>MYMOVIES</h2>
+        </a>
+
+        <a href="Page6.html" class="media-card">
+            <h2>MYTV SHOWS</h2>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
