@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Hub | De Leon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Gravitas+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --base-color-100: #DBCAAC;
             --base-color-200: #BEAB8B;
             --base-color-300: #918C76;
 
-            --primary-color-100: #351D11;
-            --primary-color-200: #2b180e;
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
 
             --accent-color-100: #79452F;
             --accent-color-200: #512d1e;
@@ -27,49 +29,96 @@
             --font-heading: "Gravitas One", "Crimson Text", serif;
         }
 
-        body {
+        /* Global Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--base-color-100);
-            color: var(--primary-color-100);
-            font-family: var(--font-body);
+            box-sizing: border-box;
         }
 
-        /* Header matching the image provided */
-        header {
-            background-color: var(--header-bg);
-            padding: 15px 5%;
+        body {
+            background: var(--base-color-100);
+            font-family: var(--font-body);
+            color: var(--primary-color-100);
+            padding-top: 100px; /* Essential for the fixed nav */
+        }
+
+        /* --- NAVIGATION (Unified Site Style) --- */
+        .site-nav {
+            background: var(--header-bg);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 10%; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            color: var(--header-text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
             align-items: center;
         }
 
-        .logo {
+        .site-nav a, .dropbtn {
+            color: var(--header-text);
+            padding: 10px 15px;
+            text-decoration: none;
             font-family: var(--font-heading);
-            color: var(--header-text);
             text-transform: uppercase;
-            letter-spacing: 4px;
             font-size: 0.8rem;
+            background: none; 
+            border: none; 
+            cursor: pointer;
         }
 
-        .nav-top-links {
-            display: flex;
-            gap: 30px;
+        /* --- DROPDOWN (Matching Your Image) --- */
+        .dropdown { position: relative; display: inline-block; }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--base-color-200); /* Matching image background */
+            right: 0; /* Align to the right of the button */
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-top: 4px solid var(--accent-color-100);
+            z-index: 2000;
         }
 
-        .nav-top-links a {
-            color: var(--header-text);
+        .dropdown-content a { 
+            color: var(--primary-color-100); 
+            padding: 15px 20px; 
+            display: block; 
             text-decoration: none;
             font-family: var(--font-heading);
             font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            text-align: left;
+            transition: 0.3s;
         }
 
-        /* Main Content Section */
+        .dropdown-content a:hover { 
+            background: var(--base-color-300);
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- MEDIA HUB HERO SECTION --- */
         .hero-section {
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
 
         h1 {
@@ -79,6 +128,7 @@
             max-width: 900px;
             margin: 0 auto 50px auto;
             color: var(--primary-color-100);
+            text-transform: uppercase;
         }
 
         /* Selection Cards Container */
@@ -114,7 +164,6 @@
             transition: color 0.4s ease;
         }
 
-        /* Hover Effects */
         .media-card::before {
             content: '';
             position: absolute;
@@ -127,47 +176,51 @@
             z-index: 1;
         }
 
-        .media-card:hover::before {
-            height: 100%;
-        }
+        .media-card:hover::before { height: 100%; }
+        .media-card:hover h2 { color: var(--base-color-100); }
+        .media-card:hover { transform: translateY(-5px); }
 
-        .media-card:hover h2 {
-            color: var(--base-color-100);
+        @media(max-width: 768px) {
+            .site-nav { padding: 10px 5%; }
+            .hero-section { padding-top: 30px; }
         }
-
-        .media-card:hover {
-            transform: translateY(-5px);
-        }
-
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">De Leon</div>
-    <div class="nav-top-links">
-        <a href="index.html">Home</a>
-        <a href="#">Blog Stories ▾</a>
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">De Leon</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Blog Stories ▾</button>
+                <div class="dropdown-content">
+                    <a href="Page1.html">Blog 1</a>
+                    <a href="Page2.html">Blog 2</a>
+                    <a href="Page3.html">Blog 3</a>
+                    <a href="Media.html">Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Explore My <br>Favorite Songs, Movies and TV Shows</h1>
+
+        <div class="selection-grid">
+            <a href="Page4.html" class="media-card">
+                <h2>MY BEATS</h2>
+            </a>
+
+            <a href="Page5.html" class="media-card">
+                <h2>MY MOVIES</h2>
+            </a>
+
+            <a href="Page6.html" class="media-card">
+                <h2>MY TV SHOWS</h2>
+            </a>
+        </div>
     </div>
-</header>
-
-<div class="hero-section">
-    <h1>Explore My <br>Favorite Songs,Movies and TV Shows</h1>
-
-    <div class="selection-grid">
-        <a href="Page4.html" class="media-card">
-            <h2>MYBEATS</h2>
-        </a>
-
-        <a href="Page5.html" class="media-card">
-            <h2>MYMOVIES</h2>
-        </a>
-
-        <a href="Page6.html" class="media-card">
-            <h2>MYTV SHOWS</h2>
-        </a>
-    </div>
-</div>
 
 </body>
 </html>

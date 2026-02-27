@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Top 3 TV shows</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Gravitas+One&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --base-color-100: #DBCAAC;
             --base-color-200: #BEAB8B;
-            --primary-color-100: #351D11;
-            --primary-color-200: #2b180e;
+            --base-color-300: #918C76;
+
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
+
             --accent-color-100: #79452F;
-            
+            --accent-color-200: #512d1e;
+
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+
             /* Unified Nav Colors */
             --header-bg: var(--primary-color-100); 
             --header-text: var(--base-color-100);
@@ -21,6 +30,7 @@
             --font-heading: "Gravitas One", serif;
         }
 
+        /* Reset & Layout */
         * {
             margin: 0;
             padding: 0;
@@ -37,7 +47,7 @@
             align-items: center;
         }
 
-        /* --- NAVIGATION (COPY FROM MOVIES CODE) --- */
+        /* --- NAVIGATION (Unified Site Style) --- */
         .site-nav {
             background: var(--header-bg);
             position: fixed;
@@ -45,7 +55,7 @@
             width: 100%;
             z-index: 1000;
             display: flex;
-            justify-content: space-between; /* Logo left, Links right */
+            justify-content: space-between; 
             align-items: center;
             padding: 10px 10%; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -72,12 +82,9 @@
             font-family: var(--font-heading);
             text-transform: uppercase;
             font-size: 0.8rem;
-            background: none; 
-            border: none; 
-            cursor: pointer;
+            background: none; border: none; cursor: pointer;
         }
 
-        /* Dropdown Logic */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content {
             display: none;
@@ -91,10 +98,11 @@
         .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* --- CONTENT LAYOUT --- */
+        /* --- MOVIE CONTENT --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             width: 90%;
+            margin-bottom: 60px;
         }
 
         header.page-header {
@@ -124,13 +132,19 @@
             display: flex;
             flex-direction: column;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-10px);
         }
 
         .card-image {
             width: 100%;
-            height: 450px;
+            height: 450px; 
             object-fit: cover;
             object-position: top;
+            image-rendering: -webkit-optimize-contrast;
         }
 
         .card-content {
@@ -156,7 +170,7 @@
             font-family: var(--font-heading);
             font-size: 1.8rem;
             color: var(--primary-color-100);
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
         }
 
         .info-label {
@@ -184,24 +198,41 @@
             margin-top: auto;
         }
 
-        .video-box iframe { width: 100%; height: 100%; border: none; }
+        .video-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
+        /* Footer Nav */
         .footer-nav {
             display: flex;
             justify-content: space-between; 
             align-items: center;
             margin-top: 60px;
-            padding-bottom: 40px;
             padding-top: 30px;
             border-top: 2px solid var(--primary-color-200); 
             width: 100%;
+            max-width: 1200px;
         }
 
         .nav-link {
             font-family: var(--font-heading);
             color: var(--primary-color-100);
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.2rem; 
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color-100);
+            border-bottom: 2px solid var(--accent-color-100);
+        }
+
+        @media(max-width:768px){
+            body { padding-top: 80px; }
+            h1.page-title { font-size: 2.2rem; }
+            .site-nav { padding: 10px 5%; }
         }
     </style>
 </head>
@@ -216,52 +247,62 @@
                 <div class="dropdown-content">
                     <a href="Page1.html">Blog 1</a>
                     <a href="Page2.html">Blog 2</a>
-                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="container">
         <header class="page-header">
-            <h1 class="page-title">My Top 3 TV Shows</h1>
+            <h1 class="page-title">My Top 3 Movies</h1>
         </header>
 
         <section class="movie-grid">
             <article class="movie-card">
-                <img src="../../Assets/starwars.jpg" class="card-image" alt="Star Wars">
+                <img src="../../Assets/starwars.jpg" class="card-image" alt="star wars">
                 <div class="card-content">
-                    <div class="genre-tag">Animation / Sci-fi</div>
-                    <h2 class="movie-title">Star Wars The Clone Wars</h2>
+                    <div class="genre-tag">Animation / Sci-Fi</div>
+                    <h2 class="movie-title">Star Wars the Clone Wars</h2>
                     <span class="info-label">Director</span> Dave Filoni
-                    <p class="description">Chronicles the adventures of Anakin Skywalker and Obi-Wan Kenobi during the violent Clone Wars.</p>
+                    <span class="info-label">Stars</span> Matt Lanter, Ashley Eckstein, Dee Bradley Baker, James Arnorld Taylor
+                    <span class="info-label">Synopsis</span>
+                    <p class="description">The first weekly TV series from Lucasfilm Animation chronicles the adventures of Anakin Skywalker, Yoda, Obi-Wan Kenobi and other popular characters from the `Star Wars' universe during the violent Clone Wars, as dwindling numbers of Jedi knights struggle to restore peace.</p>
                     <div class="video-box">
-                        <iframe src="https://www.youtube.com/embed/FXGmxQ7Bzzw" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/FXGmxQ7Bzzw?si=Y8NEuq9lnHSA_1V9" allowfullscreen> </iframe>
                     </div>
                 </div>
             </article>
 
             <article class="movie-card">
-                <img src="../../Assets/sorb.jpg" class="card-image" alt="Orb">
+                <img src="../../Assets/sorb.jpg" class="card-image" alt="orb">
                 <div class="card-content">
-                    <div class="genre-tag">Animation / History</div>
-                    <h2 class="movie-title">Orb: Movements of the Earth</h2>
-                    <span class="info-label">Director</span> Kenichi Shimizu
-                    <p class="description">A young child prodigy goes on a quest to find hidden research after learning heretical teachings.</p>
+                    <div class="genre-tag">Animation / History </div>
+                    <h2 class="movie-title">Orb: On the Movements of the Earth</h2>
+                    <span class="info-label">Director</span> Kenichi Shimizu, Shingo Irie, Uoto
+                    <span class="info-label">Stars</span> 
+Sakamoto, Maaya, 
+Nakamura, Yuuichi,
+Konishi, Katsuyuki,
+Tsuda, Kenjirou.
+                    <span class="info-label">Synopsis</span>
+                    <p class="description">Twelve-year-old prodigy Rafal believes in living rationally, so as to earn praise and respect from society while not being led astray by his emotions. To this end, he publicly states his intention to study theology—the academic field held in highest regard in early 15th century Poland. However, an encounter with a mysterious man upends Rafal's life, sparking an illogical desire to instead pursue his passion for astronomy.</p>
                     <div class="video-box">
-                        <iframe src="https://www.youtube.com/embed/3V4GUm8AuO4" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/3V4GUm8AuO4?si=0KzNIHMa2imW9oBL" allowfullscreen></iframe>
                     </div>
                 </div>
             </article>
 
             <article class="movie-card">
-                <img src="../../Assets/friends.jpg" class="card-image" alt="Friends">
+                <img src="../../Assets/friends.jpg" class="card-image" alt="friends">
                 <div class="card-content">
                     <div class="genre-tag">Sitcom</div>
                     <h2 class="movie-title">Friends</h2>
-                    <span class="info-label">Director</span> James Burrows
-                    <p class="description">Six young friends face life and love together in Manhattan, New York City.</p>
+                    <span class="info-label">Director</span> Jennifer Yuh Nelson
+                    <span class="info-label">Stars</span> Jenmifer Aniston, Matt Leblanc, Lisa Kudrow, David Schwimmer, Matthew Perry, Courtney Cox,
+                    <span class="info-label">Synopsis</span>
+                    <p class="description">Six young men and women live in the same apartment complex and face life and love together in Manhattan, New York City. As they're constantly sticking their noses into each another's businesses, as well as sometimes swapping romantic partners, the group always get into the kind of comic situations that most other people never experience, especially during breakups.</p>
                     <div class="video-box">
-                        <iframe src="https://www.youtube.com/embed/JYqAWNVHBwo" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/JYqAWNVHBwo?si=SGUdjacvrQtAnK8Y" allowfullscreen></iframe>
                     </div>
                 </div>
             </article>
@@ -269,7 +310,7 @@
 
         <div class="footer-nav">
             <a href="Page5.html" class="nav-link">← Go back to Blog 5</a>
-            <a href="#" class="nav-link">Coming Soon...→</a>
+            <a href="Page6.html" class="nav-link">Go to Blog 7 →</a>
         </div>
     </div>
 
