@@ -48,10 +48,49 @@
         .nav-logo { font-family: var(--font-heading); color: var(--header-text); text-decoration: none; font-size: 1.5rem; letter-spacing: 2px; }
         .nav-links { display: flex; gap: 10px; align-items: center; }
         .site-nav a, .dropbtn { color: var(--header-text); padding: 10px 20px; text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.8rem; background: none; border: none; cursor: pointer; }
+        
+        /* ANIMATED DROPDOWN START */
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background: var(--base-color-200); right: 0; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--accent-color-100); }
-        .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
-        .dropdown:hover .dropdown-content { display: block; }
+        
+        .dropdown-content {
+            display: block; /* Required for animation */
+            position: absolute;
+            background: var(--base-color-200);
+            right: 0;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-top: 4px solid var(--accent-color-100);
+            z-index: 2000;
+
+            /* Animation States */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a { 
+            color: var(--primary-color-100); 
+            padding: 15px 20px; 
+            display: block; 
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover { 
+            background: var(--base-color-300); 
+            padding-left: 25px; 
+        }
+        /* ANIMATED DROPDOWN END */
 
         /* --- BLOG CONTAINER --- */
         .blog-container {
@@ -148,11 +187,11 @@
             <div class="dropdown">
                 <button class="dropbtn">Blog Stories ▾</button>
                 <div class="dropdown-content">
-                 <a href="Page1.html">Java Frustrations</a>
-                <a href="Page2.html">2 instrument</a>
-                <a href="Page3.html">Dream Life</a>
-                <a href="Media.html">Media</a>
-                <a href="Page8.html">Bucket List</a>
+                    <a href="Page1.html">Java Frustrations</a>
+                    <a href="Page2.html">2 instrument</a>
+                    <a href="Page3.html">Dream Life</a>
+                    <a href="Media.html">Media</a>
+                    <a href="Page8.html">Bucket List</a>
                 </div>
             </div>
         </div>
@@ -161,7 +200,7 @@
     <div class="blog-container">
 
         <header id="top">
-            <h2>My  Top 5 From my Bucket List</h2>
+            <h2>My Top 5 From my Bucket List</h2>
             <div class="header-info"> 
                 <span class="header-name">De Leon Kenxie Jermaine S.</span>
                 <span class="header-date">26 February 2026</span>
@@ -176,7 +215,7 @@
                 </p>
             </div>
             <div class="image-block">
-                <img src="../../Assets/cavoe.png" alt="Present Study Life" class="blog-img">
+                <img src="../../Assets/cavoe.png" alt="Cavoe Osu Event" class="blog-img">
             </div>
         </div>
 
@@ -188,7 +227,7 @@
                 </p>
             </div>
             <div class="image-block">
-                <img src="../../Assets/america.jpg" alt="AI and Challenges" class="blog-img">
+                <img src="../../Assets/america.jpg" alt="United States" class="blog-img">
             </div>
         </div>
 
@@ -196,11 +235,11 @@
             <div class="text-block">
                 <div class="section-title">3. Skydiving</div>
                 <p>
-                    I been wanting to skydive since i was a child. the thought of like jumping of a plane and then  freefalling feels like I am in a movie
+                    I been wanting to skydive since i was a child. the thought of like jumping of a plane and then freefalling feels like I am in a movie
                 </p>
             </div>
             <div class="image-block">
-                <img src="../../Assets/skydiving.jpg" alt="Thoughts of the Future" class="blog-img">
+                <img src="../../Assets/skydiving.jpg" alt="Skydiving Experience" class="blog-img">
             </div>
         </div>
 
@@ -208,11 +247,11 @@
             <div class="text-block">
                 <div class="section-title">4. Going to a cruise</div>
                 <p>
-                 The cruise is so cool. You basically get to relax, eat  and just go out everyday for almost a week on a big boat.
+                 The cruise is so cool. You basically get to relax, eat and just go out everyday for almost a week on a big boat.
                 </p>
             </div>
             <div class="image-block">
-                <img src="../../Assets/cruise.avif"Dream Lifestyle" class="blog-img">
+                <img src="../../Assets/cruise.avif" alt="Cruise Ship" class="blog-img">
             </div>
         </div>
 
@@ -224,7 +263,7 @@
                 </p>
             </div>
             <div class="image-block">
-                <img src="../../Assets/f1.webp" alt="Final Thoughts" class="blog-img">
+                <img src="../../Assets/f1.webp" alt="F1 Racing" class="blog-img">
             </div>
         </div>
 
@@ -234,7 +273,7 @@
 
         <div class="footer-nav">
             <a href="../../index.html" class="nav-link">← Go back to Main Page</a>
-            <a href="" class="nav-link">Coming soon.... →</a>
+            <a href="#" class="nav-link">Coming soon.... →</a>
         </div>
     </div>
 

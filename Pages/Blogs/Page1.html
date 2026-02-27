@@ -51,7 +51,7 @@
             padding-top: 100px; /* Space for fixed nav */
         }
 
-        /* --- NAVIGATION (Unified Site Style) --- */
+        /* --- NAVIGATION --- */
         .site-nav {
             background: var(--header-bg);
             position: fixed;
@@ -90,17 +90,47 @@
         }
 
         .dropdown { position: relative; display: inline-block; }
+
+        /* ANIMATED DROPDOWN START */
         .dropdown-content {
-            display: none;
+            display: block; /* Required for transition to work */
             position: absolute;
             background: var(--base-color-200);
             right: 0;
-            min-width: 160px;
+            min-width: 180px;
             box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            border-top: 3px solid var(--accent-color-100);
+            border-top: 4px solid var(--accent-color-100);
+            z-index: 2000;
+            
+            /* Animation States */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
-        .dropdown:hover .dropdown-content { display: block; }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        /* ANIMATED DROPDOWN END */
+
+        .dropdown-content a { 
+            color: var(--primary-color-100); 
+            padding: 15px 20px; 
+            display: block; 
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover { 
+            background: var(--base-color-300); 
+            padding-left: 25px; 
+        }
 
         /* --- BLOG CONTENT --- */
         .blog-container {
@@ -153,7 +183,6 @@
             transform: translateX(5px);
         }
 
-        /* Code Block Styling */
         .comparison {
             display: grid;
             grid-template-columns: 1fr 1fr;

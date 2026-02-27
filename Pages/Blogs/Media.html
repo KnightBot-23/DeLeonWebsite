@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery | De Leon</title>
+    <title>Media Hub | De Leon</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 
@@ -12,35 +12,29 @@
             --base-color-100: #DBCAAC;
             --base-color-200: #BEAB8B;
             --base-color-300: #918C76;
-            --primary-color-100: #351D11;
-            --primary-color-200: #2b180e;
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
             --accent-color-100: #79452F;
             --accent-color-200: #512d1e;
             --secondary-color-100: #7F5E33;
             --secondary-color-200: #553e21;
-
             --header-bg: var(--primary-color-100); 
             --header-text: var(--base-color-100);
-
             --font-body: "Poppins", sans-serif;
             --font-heading: "Gravitas One", serif;
         }
 
         /* Global Styles */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: var(--base-color-100);
             font-family: var(--font-body);
             color: var(--primary-color-100);
-            padding-top: 80px; /* Added to prevent header from covering H1 */
+            padding-top: 100px;
         }
 
-        /* --- HEADER / NAVIGATION STYLES --- */
+        /* --- NAVIGATION --- */
         .site-nav {
             background: var(--header-bg);
             position: fixed;
@@ -49,208 +43,101 @@
             padding: 10px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .nav-logo { 
-            font-family: var(--font-heading); 
-            color: var(--header-text); 
-            text-decoration: none; 
-            font-size: 1.5rem; 
-            letter-spacing: 2px; 
-        }
-
+        .nav-logo { font-family: var(--font-heading); color: var(--header-text); text-decoration: none; font-size: 1.5rem; letter-spacing: 2px; }
         .nav-links { display: flex; gap: 10px; align-items: center; }
-
-        .site-nav a, .dropbtn { 
-            color: var(--header-text); 
-            padding: 10px 15px; 
-            text-decoration: none; 
-            font-family: var(--font-heading); 
-            text-transform: uppercase; 
-            font-size: 0.8rem; 
-            background: none; 
-            border: none; 
-            cursor: pointer; 
-        }
+        .site-nav a, .dropbtn { color: var(--header-text); padding: 10px 15px; text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.8rem; background: none; border: none; cursor: pointer; }
         
         .dropdown { position: relative; display: inline-block; }
-
-        .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            background: var(--base-color-200); 
-            right: 0; 
-            min-width: 180px; 
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
-            border-top: 4px solid var(--accent-color-100); 
-            z-index: 2000; 
-        }
-
-        .dropdown-content a { 
-            color: var(--primary-color-100); 
-            padding: 15px 20px; 
-            display: block; 
-            text-decoration: none; 
-            font-family: var(--font-heading); 
-            font-size: 0.9rem; 
-            transition: 0.3s; 
-            text-align: left;
-        }
-
-        .dropdown-content a:hover { 
-            background: var(--base-color-300); 
-            padding-left: 25px; 
-        }
-
+        .dropdown-content { display: none; position: absolute; background: var(--base-color-200); right: 0; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-top: 4px solid var(--accent-color-100); z-index: 2000; }
+        .dropdown-content a { color: var(--primary-color-100); padding: 15px 20px; display: block; text-decoration: none; font-family: var(--font-heading); font-size: 0.9rem; transition: 0.3s; }
+        .dropdown-content a:hover { background: var(--base-color-300); padding-left: 25px; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* --- GALLERY STYLES (Your original code with color variables) --- */
-        input{
-            display: none;
-        }
-        .container{
-            width: 100%;
-            text-align: center;
-        }
-        h1{
+        /* --- MEDIA HUB HERO SECTION --- */
+        .hero-section { text-align: center; padding: 60px 20px; }
+
+        h1 {
             font-family: var(--font-heading);
-            font-weight: normal;
-            font-size: 35px;
-            position: relative;
-            margin: 40px 0;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            color: var(--primary-color-100);
+            text-transform: uppercase;
         }
-        h1::before{
+
+        /* Selection Cards Container */
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .media-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            background-color: var(--base-color-200);
+            height: 300px;
+            border: 2px solid var(--primary-color-100);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        /* Large Symbols */
+        .card-symbol {
+            font-size: 5rem;
+            color: var(--primary-color-100);
+            z-index: 2;
+            transition: all 0.4s ease;
+            margin-bottom: 10px;
+        }
+
+        /* Bottom Text */
+        .card-label {
+            font-family: var(--font-heading);
+            color: var(--primary-color-100);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 2;
+            transition: all 0.4s ease;
+        }
+
+        /* Hover Effect: Background Fill */
+        .media-card::before {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-color-100);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: animate 4s linear infinite;
-        }
-        @keyframes animate {
-            0%{ width: 100px; }
-            50%{ width: 200px; }
-            100%{ width: 100px; }
-        }
-        .top-content{
-            background-color: var(--base-color-200);
-            width: 90%;
-            margin: 0 auto 20px auto;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            border-radius: 5px;
-            box-shadow: 3px 3px 5px var(--base-color-300);
-        }
-        h3{
-            height: 100%;
-            background-color: var(--header-bg);
-            line-height: 60px;
-            padding: 0 50px;
-            color: var(--header-text);
-        }
-        label{
-            display: inline-block;
-            height: 100%;
-            margin: 0 20px;
-            line-height: 60px;
-            font-size: 18px;
-            color: var(--primary-color-100);
-            cursor: pointer;
-            transition: color .5s;
-        }
-        label:hover{
-            color: var(--accent-color-100);
-        }
-        .photo-gallery{
-            width: 90%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-            padding-bottom: 50px;
-        }
-
-        .pic{
-            position: relative;
-            height: 300px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 4px var(--base-color-300);
-            overflow: hidden;
-            background-color: #fff;
-        }
-        .pic a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 5; 
-        }
-
-        .pic img {
-            width: 100%;
-            height: 100%; 
-            object-fit: cover;
-            display: block;
-            transition: .5s;
-        }
-        .pic::before{
-            content: "PHOTO GALLERY";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
-            width: 100%;
-            margin-top: -100px;
-            opacity: 0;
-            transition: .3s;
-            transition-delay: .2s;
+            bottom: 0; left: 0;
+            width: 100%; height: 0%;
+            background-color: var(--primary-color-100);
+            transition: all 0.4s ease;
             z-index: 1;
         }
-        .pic::after{
-            content: "";
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            border-radius: 10px;
-            height: 0;
-            background-color: rgba(53, 29, 17, 0.6);
-            transition: .3s;
-        }
-        .pic:hover::after{
-            height: 100%;
-        }
-        .pic:hover::before{
-            margin-top: 0;
-            opacity: 1;
+
+        .media-card:hover::before { height: 100%; }
+        
+        .media-card:hover .card-symbol, 
+        .media-card:hover .card-label { 
+            color: var(--base-color-100); 
+            transform: scale(1.1);
         }
 
-        /* --- FILTERING LOGIC (Unchanged) --- */
-        #check2:checked ~ .container .photo-gallery .pic,
-        #check3:checked ~ .container .photo-gallery .pic,
-        #check4:checked ~ .container .photo-gallery .pic {
-            display: none;
+        .media-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 15px 30px rgba(53, 29, 17, 0.3);
         }
 
-        #check1:checked ~ .container .photo-gallery .pic {
-            display: block;
-        }
-
-        #check2:checked ~ .container .photo-gallery .child {
-            display: block;
-        }
-
-        #check3:checked ~ .container .photo-gallery .teen {
-            display: block;
-        }
-
-        #check4:checked ~ .container .photo-gallery .college {
-            display: block;
+        @media(max-width: 768px) {
+            .site-nav { padding: 10px 5%; }
+            .hero-section { padding-top: 30px; }
         }
     </style>
 </head>
@@ -273,63 +160,25 @@
         </div>
     </nav>
 
-    <input type="radio" name="Photos" id="check1" checked>
-    <input type="radio" name="Photos" id="check2">  
-    <input type="radio" name="Photos" id="check3">  
-    <input type="radio" name="Photos" id="check4">  
+    <div class="hero-section">
+        <h1>Explore My <br>Media Collections</h1>
 
-    <div class="container">
-        <h1>MY PHOTO GALLERY</h1>
-        <div class="top-content">
-            <h3>Photo Gallery</h3>
-            <label for="check1">All Photos</label>
-            <label for="check2">Childhood Photos</label>
-            <label for="check3">Teenage Photos</label>
-            <label for="check4">College Photos</label>
+        <div class="selection-grid">
+            <a href="Page4.html" class="media-card">
+                <div class="card-symbol">♫</div>
+                <div class="card-label">My Beats</div>
+            </a>
+
+            <a href="Page5.html" class="media-card">
+                <div class="card-symbol">🎬</div>
+                <div class="card-label">My Movies</div>
+            </a>
+
+            <a href="Page6.html" class="media-card">
+                <div class="card-symbol">📺</div>
+                <div class="card-label">My TV Shows</div>
+            </a>
         </div>
-
-        <div class="photo-gallery">
-            <div class="pic child">
-                <a href="img/childhood-pic.jpg" target="_blank">
-                    <img src="img/childhood-pic.jpg">
-                </a>
-            </div>
-            <div class="pic child">
-                <a href="img/Childhood1.jpg" target="_blank">
-                    <img src="img/Childhood1.jpg">
-                </a>    
-            </div>
-            <div class="pic child">
-                <a href="img/Childhood2.jpg" target="_blank">
-                    <img src="img/Childhood2.jpg">
-                </a>
-            </div>
-            <div class="pic teen">
-                <a href="img/Teen1.jpg" target="_blank">
-                    <img src="img/Teen1.jpg">
-                </a>               
-            </div>
-            <div class="pic teen">
-                <a href="img/Teen2.jpg" target="_blank">
-                    <img src="img/Teen2.jpg">
-                </a>                
-            </div>
-            <div class="pic college">
-                <a href="img/College1.jpg" target="_blank">
-                    <img src="img/College1.jpg">
-                </a>    
-            </div>
-            <div class="pic college">
-                <a href="img/UEBAND.jpg" target="_blank">
-                    <img src="img/UEBAND.jpg">
-                </a>    
-            </div>
-            <div class="pic college">
-                <a href="img/College3.jpg" target="_blank">
-                    <img src="img/College3.jpg">
-                </a>    
-            </div>
-        </div>     
     </div>
 
 </body>
