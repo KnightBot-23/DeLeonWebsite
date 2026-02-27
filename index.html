@@ -3,114 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEBSTIE</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kenxie Jermaine | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --base-color-100: #DBCAAC;
+            --base-color-200: #BEAB8B;
+            --base-color-300: #918C76;
+
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
+
+            --accent-color-100: #79452F;
+            --accent-color-200: #512d1e;
+
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+
+            --header-bg: var(--primary-color-100); 
+            --header-text: var(--base-color-100);
+
+            --font-body: "Poppins", "Roboto", sans-serif;
+            --font-heading: "Gravitas One", "Crimson Text", serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--base-color-100); font-family: var(--font-body); color: var(--primary-color-100); line-height: 1.6; padding-top: 80px; }
+
+        /* --- SUGGESTED NAVIGATION STYLE --- */
+        .site-nav {
+            background: var(--header-bg);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 10%; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            color: var(--header-text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .site-nav a, .dropbtn {
+            color: var(--header-text);
+            padding: 10px 15px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            background: none; 
+            border: none; 
+            cursor: pointer;
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--base-color-200);
+            right: 0;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-top: 4px solid var(--accent-color-100);
+            z-index: 2000;
+        }
+
+        .dropdown-content a { 
+            color: var(--primary-color-100); 
+            padding: 15px 20px; 
+            display: block; 
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .dropdown-content a:hover { 
+            background: var(--base-color-300);
+            padding-left: 25px;
+        }
+
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .hero { padding: 80px 10% 60px; display: flex; align-items: center; gap: 50px; min-height: 70vh; }
+        .hero-visuals { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        .profile-pic { width: 100%; max-width: 400px; height: 400px; object-fit: cover; border-radius: 20px; border: 8px solid var(--base-color-200); box-shadow: 15px 15px 0px var(--accent-color-100); }
+        .intro-video { width: 100%; max-width: 400px; border-radius: 10px; border: 3px solid var(--primary-color-100); }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; text-transform: uppercase; }
+        .btn-about { display: inline-block; padding: 15px 35px; background: var(--accent-color-100); color: white; text-decoration: none; font-family: var(--font-heading); border-radius: 5px; transition: 0.3s; }
+
+        /* --- SPLIT GALLERY SECTION --- */
+        .gallery-split { display: flex; min-height: 500px; background: var(--primary-color-200); color: var(--base-color-100); }
+        .collage-container { flex: 1.2; position: relative; padding: 60px; display: flex; justify-content: center; align-items: center; }
+        .collage-img { position: absolute; width: 220px; height: 300px; object-fit: cover; border: 5px solid var(--base-color-100); border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.4); transition: 0.3s ease; }
+        .img1 { transform: rotate(-10deg) translate(-40px, -20px); z-index: 1; }
+        .img2 { transform: rotate(5deg) translate(20px, 10px); z-index: 3; }
+        .img3 { transform: rotate(-5deg) translate(80px, -40px); z-index: 2; }
+        .collage-container:hover .collage-img { transform: rotate(0) translate(0) scale(1.05); z-index: 5; }
+
+        .gallery-cta { flex: 0.8; background: var(--accent-color-100); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; text-decoration: none; color: var(--base-color-100); transition: 0.4s ease; }
+        .gallery-cta:hover { background: var(--accent-color-200); }
+        .gallery-cta h2 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 15px; }
+
+        .details-grid { background: var(--base-color-200); padding: 80px 10%; display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+        .section-title { font-family: var(--font-heading); margin-bottom: 30px; color: var(--primary-color-100); position: relative; display: inline-block; text-transform: uppercase; }
+        .section-title::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 50px; height: 4px; background: var(--accent-color-100); }
+
+        .contact-list { list-style: none; }
+        .contact-list li { margin-bottom: 25px; font-weight: 600; }
+        .contact-list span { display: block; font-weight: 400; color: var(--primary-color-200); margin-top: 5px; }
+
+        .education-timeline { border-left: 3px solid var(--accent-color-100); padding-left: 30px; margin-left: 10px; }
+        .edu-item { position: relative; margin-bottom: 40px; }
+        .edu-item::before { content: '●'; position: absolute; left: -39px; top: 0; color: var(--accent-color-100); font-size: 20px; background: var(--base-color-200); }
+        .edu-year { font-weight: 600; color: var(--accent-color-100); font-size: 0.8rem; }
+        .edu-item h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 5px 0; }
+
+        @media (max-width: 900px) {
+            .hero, .details-grid, .gallery-split { flex-direction: column; }
+            .collage-container { min-height: 400px; padding: 20px; overflow: hidden; }
+            .hero-text { text-align: center; }
+            .details-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    padding-top: 80px; 
-    background: url('arrangement-vintage-cassette-tapes.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    height: 80px; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    z-index: 99;
-}
-
-.about {
-    width: 50%;
-    min-height: 100vh;
-    padding-left: 150px;       /* aligns with De Leon */
-    padding-top: 40px;         /* small breathing room */
-    padding-right: 70px;
-    background: rgb(8, 49, 59); /* optional pink overlay */
-}
-
-.about-text {
-    max-width: 500px;       
-    color: #fdfdfdba;
-}
-
-.about-text h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.logo {
-    font-size: 2em;
-    color: rgb(8, 49, 59);
-    user-select: none;
-}
-
-.navigation a {
-    position: relative;
-    font-size: 1.1em;
-    color: rgb(9, 11, 11);
-    text-decoration: none;
-    font-weight: 1000;
-    margin-left: 40px;
-}
-
-.navigation a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width:  100%;
-    height: 3px;
-    background: white;
-    border-radius: 5px;
-
-}
-</style>
 <body>
 
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">De Leon</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Blog Stories ▾</button>
+                <div class="dropdown-content">
+                <a href="Pages/Blogs/Page1.html">Java Frustrations</a>
+                <a href="Pages/Blogs/Page2.html">2 instrument</a>
+                <a href="Pages/Blogs/Page3.html">Dream Life</a>
+                <a href="Pages/Blogs/Media.html">Media</a>
+                <a href="Pages/Blogs/Page8.html">Bucket List</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <header>
-        <h1> WORK IN PROGRESS</h1>
-        <h2 class="logo">De Leon</h2>
-        <nav class="navigation">
-            <a href="index.html" >Photo Gallery</a>
-            <a href="Biography.html" >About</a>
-            <a href="Pages/Blogs/Page1.html" >Works</a>
-            <a href="">Contacts</a>
-        </nav>
-    </header>
-
-    <section class="about">
-        <div class="about-text">
-            <h2>About Me</h2>
-            <p> 
-                Hello, And welcome to my website. My name is De Leon Kenxie Jermaine S. 21 years old and currently studying as a 2nd year Computer Science student.
-            </p>
+    <section class="hero">
+        <div class="hero-visuals">
+            <img src="Assets/College3.jpg" alt="Kenxie Jermaine" class="profile-pic">
+            <video class="intro-video" controls>
+                <source src="intro-video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-text">
+            <h1>Hello, I'm Kenxie Jermaine S. De Leon</h1>
+            <p>2nd Year Computer Science Student navigating the digital world through code, music, and travel.</p>
+            <a href="Biography.html" class="btn-about">My Biography</a>
         </div>
     </section>
 
+    <section class="gallery-split">
+        <div class="collage-container">
+            <img src=""collage-img img1" alt="Life 1">
+            <img src="Assets/STI-pic.jpg" class="collage-img img3" alt="Life 3">
+            <img src="Assets/College4.jpg" class="collage-img img2" alt="Life 2">
+        </div>
+        <a href="GallerySection.html" class="gallery-cta">
+            <h2>PHOTO GALLERY</h2>
+            <p>Pictures from my life so far</p>
+            <span style="font-size: 2rem;">➜</span>
+        </a>
+    </section>
 
-
+    <section class="details-grid">
+        <div class="contact-section">
+            <h2 class="section-title">Contact</h2>
+            <ul class="contact-list">
+                <li>Email <span>kenxie.jermaine@email.com</span></li>
+                <li>Location <span>Malabon, Metro Manila</span></li>
+                <li>Socials <span>@kenxiejermaine</span></li>
+            </ul>
+        </div>
+        <div class="education-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-timeline">
+                <div class="edu-item">
+                    <span class="edu-year">2024 - PRESENT</span>
+                    <h3>University of the East</h3>
+                    <p>BS Computer Science</p>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-year">2022 - 2024</span>
+                    <h3>Senior High School</h3>
+                    <p>STEM Graduate</p>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-year">2017 - 2022</span>
+                    <h3>Junior High School</h3>
+                    <p>ST James Graduate</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
