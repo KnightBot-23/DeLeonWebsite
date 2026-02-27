@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Travel Bucket List</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --base-color-100: #DBCAAC;
+            --base-color-200: #BEAB8B;
+            --base-color-300: #918C76;
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
+            --accent-color-100: #79452F;
+            --accent-color-200: #512d1e;
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+
+            --header-bg: var(--primary-color-100); 
+            --header-text: var(--base-color-100);
+
+            --font-body: "Poppins", "Roboto", sans-serif;
+            --font-heading: "Gravitas One", "Crimson Text", serif;
+
+            --text-size-body: 20px;
+            --text-lh-body: 28px;
+            --text-size-heading: 2.5rem;
+            --text-lh-heading: 1.3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--base-color-100);
+            font-family: var(--font-body);
+            font-size: var(--text-size-body);
+            line-height: var(--text-lh-body);
+            color: var(--primary-color-100);
+            padding-top: 100px; /* Space for fixed nav */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- NAVIGATION (EXACT MATCH TO YOUR CODE) --- */
+        .site-nav {
+            background: var(--header-bg);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 10%; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            color: var(--header-text);
+            text-decoration: none;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .site-nav a, .dropbtn {
+            color: var(--header-text);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            background: none; border: none; cursor: pointer;
+        }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--base-color-200);
+            right: 0;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-top: 3px solid var(--accent-color-100);
+        }
+        .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- MAP SECTION --- */
+        .map-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-size-heading);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .map-wrapper {
+            border: 10px solid var(--secondary-color-100);
+            background: #fff;
+            line-height: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        area { cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">De Leon</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Blog Stories ▾</button>
+                <div class="dropdown-content">
+                    <a href="Page1.html">Blog 1</a>
+                    <a href="Page2.html">Blog 2</a>
+                    <a href="Page3.html">Blog 3</a>
+                    <a href="Media.html">Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <h2 class="map-title">Worldmap of Places I want to Visit</h2>
+
+    <div class="map-wrapper">
+        <img src="../../Assets/worldmap.jpg" usemap="#travelmap" width="1000" height="600" alt="World Map">
+
+        <map name="travelmap">
+            <area shape="circle" coords="825,240,40" href="kyoto.html" alt="Kyoto">
+            <area shape="circle" coords="310,410,40" href="machupicchu.html" alt="Machu Picchu">
+            <area shape="circle" coords="565,280,40" href="giza.html" alt="Giza">
+            <area shape="circle" coords="530,225,30" href="athens.html" alt="Athens">
+            <area shape="circle" coords="540,110,40" href="tromso.html" alt="Tromso">
+        </map>
+    </div>
+
+</body>
+</html>
