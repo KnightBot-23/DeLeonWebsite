@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery | De Leon</title>
+    <title>Photo Gallery</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
 
@@ -18,33 +18,16 @@
             --accent-color-200: #512d1e;
             --secondary-color-100: #7F5E33;
             --secondary-color-200: #553e21;
-
             --header-bg: var(--primary-color-100); 
             --header-text: var(--base-color-100);
-
-            --font-body: "Poppins", "Roboto", sans-serif;
-            --font-heading: "Gravitas One", "Crimson Text", serif;
-
-            --text-size-body: 20px;
-            --text-lh-body: 28px;
-            --text-size-heading: 2.5rem;
-            --text-lh-heading: 1.3;
+            --font-body: "Poppins", sans-serif;
+            --font-heading: "Gravitas One", serif;
         }
 
-        /* Global Reset */
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: var(--font-body);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-body); }
+        body { background-color: var(--base-color-100); padding-top: 80px; }
 
-        body {
-            background-color: var(--base-color-100);
-            padding-top: 80px; /* Space for fixed nav */
-        }
-
-        /* --- NAVIGATION (Integrated) --- */
+        /* --- NAVIGATION --- */
         .site-nav {
             background: var(--header-bg);
             position: fixed;
@@ -52,7 +35,6 @@
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-
         .nav-logo { font-family: var(--font-heading); color: var(--header-text); text-decoration: none; font-size: 1.5rem; letter-spacing: 2px; }
         .nav-links { display: flex; gap: 10px; align-items: center; }
         .site-nav a, .dropbtn { color: var(--header-text); padding: 10px 15px; text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.8rem; background: none; border: none; cursor: pointer; }
@@ -63,147 +45,114 @@
         .dropdown-content a:hover { background: var(--base-color-300); padding-left: 25px; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* --- GALLERY STYLES (Your Original Structure) --- */
-        input{
-            display: none;
-        }
-        .container{
-            width: 100%;
-            text-align: center;
-        }
-        h1{
-            font-family: var(--font-heading);
-            font-weight: normal;
-            font-size: 35px;
-            position: relative;
-            margin: 40px 0;
-            color: var(--primary-color-100);
-        }
-        h1::before{
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 3px;
-            background-color: var(--accent-color-100);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: animate 4s linear infinite;
-        }
+        /* --- GALLERY --- */
+        input { display: none; }
+        .container { width: 100%; text-align: center; }
+        h1 { font-family: var(--font-heading); font-size: 35px; position: relative; margin: 40px 0; color: var(--primary-color-100); }
+        h1::before { content: ''; position: absolute; width: 100px; height: 3px; background-color: var(--accent-color-100); bottom: -10px; left: 50%; transform: translateX(-50%); animation: animate 4s linear infinite; }
+        
         @keyframes animate {
-            0%{ width: 100px; }
-            50%{ width: 200px; }
-            100%{ width: 100px; }
-        }
-        .top-content{
-            background-color: var(--base-color-200);
-            width: 90%;
-            margin: 0 auto 20px auto;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            border-radius: 5px;
-            box-shadow: 3px 3px 5px var(--base-color-300);
-        }
-        h3{
-            height: 100%;
-            background-color: var(--header-bg);
-            line-height: 60px;
-            padding: 0 50px;
-            color: var(--header-text);
-            font-family: var(--font-heading);
-        }
-        label{
-            display: inline-block;
-            height: 100%;
-            margin: 0 20px;
-            line-height: 60px;
-            font-size: 18px;
-            color: var(--primary-color-100);
-            cursor: pointer;
-            transition: color .5s;
-        }
-        label:hover{
-            color: var(--accent-color-100);
-        }
-        .photo-gallery{
-            width: 90%;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 20px;
-            padding-bottom: 50px;
+            0%, 100% { width: 100px; }
+            50% { width: 200px; }
         }
 
-        .pic{
-            position: relative;
-            height: 300px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 4px var(--base-color-300);
-            overflow: hidden;
-            background-color: #fff;
-        }
-        .pic a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: relative;
-            z-index: 5; 
+        .top-content { background-color: var(--base-color-200); width: 90%; margin: 0 auto 20px auto; height: 60px; display: flex; align-items: center; border-radius: 5px; box-shadow: 3px 3px 5px var(--base-color-300); overflow-x: auto; }
+        h3 { height: 100%; background-color: var(--header-bg); line-height: 60px; padding: 0 40px; color: var(--header-text); font-family: var(--font-heading); white-space: nowrap; }
+        label { display: inline-block; height: 100%; margin: 0 15px; line-height: 60px; font-size: 16px; color: var(--primary-color-100); cursor: pointer; transition: color .5s; white-space: nowrap; }
+        label:hover { color: var(--accent-color-100); }
+
+        .photo-gallery { width: 90%; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); grid-gap: 20px; padding-bottom: 50px; }
+        
+        .pic { 
+            position: relative; 
+            height: 300px; 
+            border-radius: 10px; 
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+            background-color: #fff; 
+            transition: transform 0.4s ease, box-shadow 0.4s ease; 
         }
 
-        .pic img {
-            width: 100%;
+        .pic a { 
+            display: block; 
+            width: 100%; 
             height: 100%; 
-            object-fit: cover;
-            display: block;
-            transition: .5s;
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            z-index: 50; 
+            cursor: pointer;
         }
-        .pic::before{
-            content: "PHOTO GALLERY";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 22px;
-            font-weight: bold;
-            width: 100%;
-            margin-top: -100px;
-            opacity: 0;
-            transition: .3s;
-            transition-delay: .2s;
-            z-index: 1;
-        }
-        .pic::after{
-            content: "";
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-            border-radius: 10px;
-            height: 0;
-            background-color: rgba(53, 29, 17, 0.6);
-            transition: .3s;
-        }
-        .pic:hover::after{
-            height: 100%;
-        }
-        .pic:hover::before{
-            margin-top: 0;
-            opacity: 1;
+        
+        .pic img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        /* --- FILTER LOGIC (Unchanged) --- */
+        .pic:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(53, 29, 17, 0.25);
+        }
+
+        .pic:hover img {
+            transform: scale(1.1);
+        }
+
+        .pic::before { 
+            content: "VIEW PHOTO"; 
+            position: absolute; 
+            top: 60%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white; 
+            font-size: 18px; 
+            font-weight: bold; 
+            letter-spacing: 1px;
+            opacity: 0; 
+            transition: all 0.4s ease; 
+            z-index: 10; 
+            pointer-events: none; 
+        }
+
+        .pic::after { 
+            content: ""; 
+            position: absolute; 
+            width: 100%; 
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(53, 29, 17, 0.7); 
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .pic:hover::after { opacity: 1; }
+        .pic:hover::before { opacity: 1; top: 50%; }
+
+        /* --- FILTER LOGIC --- */
         #check2:checked ~ .container .photo-gallery .pic,
         #check3:checked ~ .container .photo-gallery .pic,
-        #check4:checked ~ .container .photo-gallery .pic {
-            display: none;
-        }
+        #check4:checked ~ .container .photo-gallery .pic,
+        #check5:checked ~ .container .photo-gallery .pic { display: none; }
+
         #check1:checked ~ .container .photo-gallery .pic,
         #check2:checked ~ .container .photo-gallery .child,
         #check3:checked ~ .container .photo-gallery .teen,
-        #check4:checked ~ .container .photo-gallery .college {
-            display: block;
+        #check4:checked ~ .container .photo-gallery .college,
+        #check5:checked ~ .container .photo-gallery .random { display: block; }
+
+        #check1:checked ~ .container .top-content label[for="check1"],
+        #check2:checked ~ .container .top-content label[for="check2"],
+        #check3:checked ~ .container .top-content label[for="check3"],
+        #check4:checked ~ .container .top-content label[for="check4"],
+        #check5:checked ~ .container .top-content label[for="check5"] {
+            color: var(--accent-color-100);
+            font-weight: bold;
         }
     </style>
 </head>
@@ -216,10 +165,9 @@
             <div class="dropdown">
                 <button class="dropbtn">Blog Stories ▾</button>
                 <div class="dropdown-content">
-                     <a href="Blogs/Page1.html">Java Frustrations</a>
+                    <a href="Blogs/Page1.html">Java Frustrations</a>
                     <a href="Blogs/Page2.html">2 instrument</a>
                     <a href="Blogs/Page3.html">Dream Life</a>
-                    <a href="Blogs/Page7.html">Dream Places</a>
                     <a href="Blogs/Media.html">Media</a>
                     <a href="Blogs/Page8.html">Bucket List</a>
                 </div>
@@ -231,35 +179,68 @@
     <input type="radio" name="Photos" id="check2">  
     <input type="radio" name="Photos" id="check3">  
     <input type="radio" name="Photos" id="check4">  
-
+    <input type="radio" name="Photos" id="check5"> 
+    
     <div class="container">
         <h1>MY PHOTO GALLERY</h1>
         <div class="top-content">
-            <h3>Photo Gallery</h3>
-            <label for="check1">All Photos</label>
-            <label for="check2">Childhood Photos</label>
-            <label for="check3">Teenage Photos</label>
-            <label for="check4">College Photos</label>
+            <h3>Gallery</h3>
+            <label for="check1">All</label>
+            <label for="check2">Childhood</label>
+            <label for="check3">Teenage</label>
+            <label for="check4">College</label>
+            <label for="check5">Random Images</label> 
         </div>
 
         <div class="photo-gallery">
-            <div class="pic child"><a href="img/childhood-pic.jpg" target="_blank"><img src="img/childhood-pic.jpg"></a></div>
-            <div class="pic child"><a href="img/Childhood1.jpg" target="_blank"><img src="img/Childhood1.jpg"></a></div>
-            <div class="pic child"><a href="img/Childhood2.jpg" target="_blank"><img src="img/Childhood2.jpg"></a></div>
-            <div class="pic child"><a href="img/Childhood3.jpg" target="_blank"><img src="img/Childhood3.jpg"></a></div>
-            <div class="pic child"><a href="img/Childhood4.jpg" target="_blank"><img src="img/Childhood4.jpg"></a></div>
+            <div class="pic child"><a href="../Assets/childhood-pic.jpg" target="_blank"><img src="../Assets/childhood-pic.jpg"></a></div>
+            <div class="pic child"><a href="../Assets/Childhood1.jpg" target="_blank"><img src="../Assets/Childhood1.jpg"></a></div>
+            <div class="pic child"><a href="../Assets/Childhood2.jpg" target="_blank"><img src="../Assets/Childhood2.jpg"></a></div>
+            <div class="pic child"><a href="../Assets/Childhood3.jpg" target="_blank"><img src="../Assets/Childhood3.jpg"></a></div>
+            <div class="pic child"><a href="../Assets/Childhood4.jpg" target="_blank"><img src="../Assets/Childhood4.jpg"></a></div>
             
-            <div class="pic teen"><a href="img/Teen1.jpg" target="_blank"><img src="img/Teen1.jpg"></a></div>
-            <div class="pic teen"><a href="img/Teen2.jpg" target="_blank"><img src="img/Teen2.jpg"></a></div>
-            <div class="pic teen"><a href="img/Teen3.jpg" target="_blank"><img src="img/Teen3.jpg"></a></div>
-            <div class="pic teen"><a href="img/STI-pic.jpg" target="_blank"><img src="img/STI-pic.jpg"></a></div>
-            <div class="pic teen"><a href="img/Teen5.jpg" target="_blank"><img src="img/Teen5.jpg"></a></div>
+            <div class="pic teen"><a href="../Assets/Teen1.jpg" target="_blank"><img src="../Assets/Teen1.jpg"></a></div>
+            <div class="pic teen"><a href="../Assets/Teen2.jpg" target="_blank"><img src="../Assets/Teen2.jpg"></a></div>
+            <div class="pic teen"><a href="../Assets/Teen3.jpg" target="_blank"><img src="../Assets/Teen3.jpg"></a></div>
+            <div class="pic teen"><a href="../Assets/STI-pic.jpg" target="_blank"><img src="../Assets/STI-pic.jpg"></a></div>
+            <div class="pic teen"><a href="../Assets/Teen5.jpg" target="_blank"><img src="../Assets/Teen5.jpg"></a></div>
             
-            <div class="pic college"><a href="img/College1.jpg" target="_blank"><img src="img/College1.jpg"></a></div>
-            <div class="pic college"><a href="img/UEBAND.jpg" target="_blank"><img src="img/UEBAND.jpg"></a></div>
-            <div class="pic college"><a href="img/College3.jpg" target="_blank"><img src="img/College3.jpg"></a></div>
-            <div class="pic college"><a href="img/College4.jpg" target="_blank"><img src="img/College4.jpg"></a></div>
-            <div class="pic college"><a href="img/College5.jpg" target="_blank"><img src="img/College5.jpg"></a></div>
+            <div class="pic college"><a href="../Assets/College1.jpg" target="_blank"><img src="../Assets/College1.jpg"></a></div>
+            <div class="pic college"><a href="../Assets/UEBAND.jpg" target="_blank"><img src="../Assets/UEBAND.jpg"></a></div>
+            <div class="pic college"><a href="../Assets/College3.jpg" target="_blank"><img src="../Assets/College3.jpg"></a></div>
+            <div class="pic college"><a href="../Assets/College4.jpg" target="_blank"><img src="../Assets/College4.jpg"></a></div>
+            <div class="pic college"><a href="../Assets/College5.jpg" target="_blank"><img src="../Assets/College5.jpg"></a></div>
+
+            <div class="pic random"><a href="../Assets/akihabara1.jpg" target="_blank"><img src="../Assets/akihabara1.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/akihabara2.jpg" target="_blank"><img src="../Assets/akihabara2.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/akihabara3.jpeg" target="_blank"><img src="../Assets/akihabara3.jpeg"></a></div>
+            <div class="pic random"><a href="../Assets/akihabara4.jpg" target="_blank"><img src="../Assets/akihabara4.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/akihabara5.webp" target="_blank"><img src="../Assets/akihabara5.webp"></a></div>
+            <div class="pic random"><a href="../Assets/vegas1.avif" target="_blank"><img src="../Assets/vegas1.avif"></a></div>
+            <div class="pic random"><a href="../Assets/vegas2.jpg" target="_blank"><img src="../Assets/vegas2.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/vegas3.jpg" target="_blank"><img src="../Assets/vegas3.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/texas1.jpg" target="_blank"><img src="../Assets/texas1.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/texas2.webp" target="_blank"><img src="../Assets/texas2.webp"></a></div>
+            <div class="pic random"><a href="../Assets/italy1.jpg" target="_blank"><img src="../Assets/italy1.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/italy2.jpg" target="_blank"><img src="../Assets/italy2.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/italy3.webp" target="_blank"><img src="../Assets/italy3.webp"></a></div>
+            <div class="pic random"><a href="../Assets/italy4.jpg" target="_blank"><img src="../Assets/italy4.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/italy5.jpg" target="_blank"><img src="../Assets/italy5.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/fin1.jpg" target="_blank"><img src="../Assets/fin1.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/fin2.jpg" target="_blank"><img src="../Assets/fin2.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/fin3.jpg" target="_blank"><img src="../Assets/fin3.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/fin4.avif" target="_blank"><img src="../Assets/fin4.avif"></a></div>
+            <div class="pic random"><a href="../Assets/fin5.webp" target="_blank"><img src="../Assets/fin5.webp"></a></div>
+            <div class="pic random"><a href="../Assets/hk1.jpg" target="_blank"><img src="../Assets/hk1.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/hk2.jpg" target="_blank"><img src="../Assets/hk2.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/hk3.jpg" target="_blank"><img src="../Assets/hk3.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/hk4.webp" target="_blank"><img src="../Assets/hk4.webp"></a></div>
+            <div class="pic random"><a href="../Assets/hk5.jpg" target="_blank"><img src="../Assets/hk5.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/testard2.jpg" target="_blank"><img src="../Assets/testard2.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/kdh.jpg" target="_blank"><img src="../Assets/kdh.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/allatonce.jpg" target="_blank"><img src="../Assets/allatonce.jpg"></a></div>
+            <div class="pic random"><a href="../Assets/cavoe.png" target="_blank"><img src="../Assets/cavoe.png"></a></div>
+            <div class="pic random"><a href="../Assets/EJAE.jpg" target="_blank"><img src="../Assets/EJAE.jpg"></a></div>
         </div>     
     </div>
 
