@@ -12,17 +12,13 @@
             --base-color-100: #DBCAAC;
             --base-color-200: #BEAB8B;
             --base-color-300: #918C76;
-
             --primary-color-100:#351D11;
             --primary-color-200:#2b180e;
-
             --accent-color-100: #79452F;
             --accent-color-200: #512d1e;
-
             --secondary-color-100: #7F5E33;
             --secondary-color-200: #553e21;
 
-            /* Unified Nav Colors */
             --header-bg: var(--primary-color-100); 
             --header-text: var(--base-color-100);
 
@@ -31,71 +27,75 @@
         }
 
         /* Reset & Layout */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--base-color-100); 
             color: var(--primary-color-200);
             font-family: var(--font-body);
-            padding-top: 100px; /* Space for fixed nav */
+            padding-top: 100px; /* Matched to Media/Song pages */
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* --- NAVIGATION (Unified Site Style) --- */
+        /* --- NAVIGATION (REFINED TO MATCH MEDIA/MAP/SONGS) --- */
         .site-nav {
             background: var(--header-bg);
             position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            padding: 10px 10%; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            top: 0; width: 100%; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .nav-logo {
-            font-family: var(--font-heading);
-            color: var(--header-text);
-            text-decoration: none;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+        .nav-logo { 
+            font-family: var(--font-heading); 
+            color: var(--header-text); 
+            text-decoration: none; 
+            font-size: 1.5rem; 
+            letter-spacing: 2px; 
         }
 
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 10px; align-items: center; }
 
-        .site-nav a, .dropbtn {
-            color: var(--header-text);
-            padding: 10px 20px;
-            text-decoration: none;
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            background: none; border: none; cursor: pointer;
+        .site-nav a, .dropbtn { 
+            color: var(--header-text); 
+            padding: 10px 15px; 
+            text-decoration: none; 
+            font-family: var(--font-heading); 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            background: none; border: none; cursor: pointer; 
         }
 
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: var(--base-color-200);
-            right: 0;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            border-top: 3px solid var(--accent-color-100);
+
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: var(--base-color-200); 
+            right: 0; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+            border-top: 4px solid var(--accent-color-100); 
+            z-index: 2000; 
         }
-        .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
+
+        .dropdown-content a { 
+            color: var(--primary-color-100); 
+            padding: 15px 20px; 
+            display: block; 
+            text-decoration: none; 
+            font-family: var(--font-heading); 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+
+        .dropdown-content a:hover { 
+            background: var(--base-color-300); 
+            padding-left: 25px; /* Slide effect from Media page */
+        }
+
         .dropdown:hover .dropdown-content { display: block; }
 
         /* --- MOVIE CONTENT --- */
@@ -135,9 +135,7 @@
             transition: transform 0.3s ease;
         }
 
-        .movie-card:hover {
-            transform: translateY(-10px);
-        }
+        .movie-card:hover { transform: translateY(-10px); }
 
         .card-image {
             width: 100%;
@@ -198,11 +196,7 @@
             margin-top: auto;
         }
 
-        .video-box iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .video-box iframe { width: 100%; height: 100%; border: none; }
 
         /* Footer Nav */
         .footer-nav {
@@ -245,11 +239,12 @@
             <div class="dropdown">
                 <button class="dropbtn">Blog Stories ▾</button>
                 <div class="dropdown-content">
-                <a href="Page1.html">Java Frustrations</a>
-                <a href="Page2.html">2 instrument</a>
-                <a href="Page3.html">Dream Life</a>
-                <a href="Media.html">Media</a>
-                <a href="Page8.html">Bucket List</a>
+                      <a href="Page1.html">Java Frustrations</a>
+                    <a href="Page2.html">2 instrument</a>
+                    <a href="Page3.html">Dream Life</a>
+                    <a href="Page7.html">Dream Places</a>
+                    <a href="Media.html">Media</a>
+                    <a href="Page8.html">Bucket List</a>
                 </div>
             </div>
         </div>
@@ -308,7 +303,7 @@
         </section>
 
         <div class="footer-nav">
-            <a href="Media.html" class="nav-link">← Go back to Media</a>
+            <a href="Media.html" class="nav-link">← Go back to Media Page</a>
         </div>
     </div>
 

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finland</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Gravitas+One&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --base-color-100: #DBCAAC;
+            --base-color-200: #BEAB8B;
+            --base-color-300: #918C76;
+            --primary-color-100:#351D11;
+            --primary-color-200:#2b180e;
+            --accent-color-100: #79452F;
+            --accent-color-200: #512d1e;
+            --secondary-color-100: #7F5E33;
+            --secondary-color-200: #553e21;
+            --header-bg: var(--primary-color-100); 
+            --header-text: var(--base-color-100);
+            --font-body: "Poppins", sans-serif;
+            --font-heading: "Gravitas One", serif;
+        }
+
+        /* Global Styles */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--base-color-100);
+            font-family: var(--font-body);
+            color: var(--primary-color-100);
+            padding-top: 70px;
+        }
+
+        /* --- NAVIGATION --- */
+        .site-nav {
+            background: var(--header-bg);
+            position: fixed;
+            top: 0; width: 100%; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-logo { font-family: var(--font-heading); color: var(--header-text); text-decoration: none; font-size: 1.5rem; letter-spacing: 2px; }
+        .nav-links { display: flex; gap: 10px; align-items: center; }
+        .site-nav a, .dropbtn { color: var(--header-text); padding: 10px 15px; text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.8rem; background: none; border: none; cursor: pointer; }
+        
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background: var(--base-color-200); right: 0; min-width: 180px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-top: 4px solid var(--accent-color-100); z-index: 2000; }
+        .dropdown-content a { color: var(--primary-color-100); padding: 15px 20px; display: block; text-decoration: none; font-family: var(--font-heading); font-size: 0.9rem; transition: 0.3s; }
+        .dropdown-content a:hover { background: var(--base-color-300); padding-left: 25px; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- HERO SECTION --- */
+        .hero-banner {
+            height: 55vh;
+            background: linear-gradient(rgba(53, 29, 17, 0.7), rgba(53, 29, 17, 0.3)), 
+                        url('https://johngabh12.vercel.app/assets/places/comiket/comiket1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            color: var(--base-color-100);
+        }
+
+        .btn-back {
+            background: var(--accent-color-100);
+            color: white;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: fit-content;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-back:hover { background: var(--accent-color-200); }
+        .hero-banner h1 { font-family: var(--font-heading); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; }
+        .hero-banner p { font-size: 1.2rem; margin-top: 10px; color: var(--base-color-200); font-weight: 600; }
+
+        /* --- CONTENT GRID --- */
+        .content-wrap {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+        }
+
+        .article h2 { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 20px; color: var(--primary-color-100); }
+        .article p { line-height: 1.7; margin-bottom: 15px; color: var(--primary-color-200); }
+
+        .feature-card {
+            background: var(--base-color-200);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 30px;
+            border: 2px solid var(--primary-color-100);
+        }
+
+        .feature-card h4 { font-family: var(--font-heading); text-transform: uppercase; margin-bottom: 15px; border-bottom: 2px solid var(--accent-color-100); display: inline-block; }
+        .feature-card ul { list-style: none; }
+        .feature-card li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .feature-card li::before { content: "•"; position: absolute; left: 0; color: var(--accent-color-100); font-weight: bold; }
+
+        /* --- CLICKABLE GALLERY --- */
+        .gallery-title { font-family: var(--font-heading); margin-bottom: 20px; color: var(--secondary-color-100); font-size: 1rem; text-transform: uppercase; }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 200px;
+            background: var(--primary-color-100); /* Fallback color */
+        }
+
+        .gallery-grid img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease, opacity 0.3s ease;
+            cursor: zoom-in;
+        }
+
+        .gallery-item:hover img { 
+            transform: scale(1.1); 
+            opacity: 0.8;
+        }
+
+        .wide { grid-column: span 2; height: 300px !important; }
+
+        @media (max-width: 850px) {
+            .content-wrap { grid-template-columns: 1fr; }
+            .hero-banner { height: 40vh; text-align: center; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav">
+        <a href="../../index.html" class="nav-logo">De Leon</a>
+        <div class="nav-links">
+            <a href="../../index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Blog Stories ▾</button>
+                <div class="dropdown-content">
+                    <a href="Page1.html">Java Frustrations</a>
+                    <a href="Page2.html">2 instrument</a>
+                    <a href="Page3.html">Dream Life</a>
+                    <a href="Page7.html">Dream Places</a>
+                    <a href="Media.html">Media</a>
+                    <a href="Page8.html">Bucket List</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-banner">
+        <a href="Page7.html" class="btn-back">← Go Back</a>
+        <h1>Finland: Capital of Nordic</h1>
+        <p>Finland, Lapland</p>
+    </header>
+
+    <main class="content-wrap">
+        <section class="article">
+            <h2>Finland: Saunas and Auroras </h2>
+            <p>This country has been in my country because of the  aurora lights. It has been a dream of mine to one day. It is apparently common in Lapland which in certain dates it apparently is night the whole 24 hour cycle.</p>
+            <p>It is cool that finland is known for it's Sauna culture which is really interesting to me and uncomfortable because how is it normal to be completely nude in a hot room together.</p>
+
+            <div class="feature-card">
+                <h4>Best Things</h4>
+                <ul>
+                    <li>Nordic Culture</li>
+                    <li>The Auroras</li>
+                    <li>Sauna Culture</li>
+                    <li>Snow.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="gallery-side">
+            <h3 class="gallery-title">Visual Highlights</h3>
+            <div class="gallery-grid">
+                <a href="../../Assets/fin5.webp" target="comiket_viewer" class="gallery-item wide">
+                    <img src="../../Assets/fin5.webp" alt="Comiket Crowd">
+                </a>
+                <a href="../../Assets/fin1.jpg" target="comiket_viewer" class="gallery-item">
+                    <img src="../../Assets/fin1.jpg" alt="Big Sight">
+                </a>
+                <a href="../../Assets/fin2.jpg" target="comiket_viewer" class="gallery-item">
+                    <img src="../../Assets/fin2.jpg"alt="Exhibition Hall">
+                </a>
+                <a href="../../Assets/fin3.jpg" target="comiket_viewer" class="gallery-item">
+                    <img src="../../Assets/fin3.jpg" alt="Cosplay Area">
+                </a>
+                <a href="../../Assets/fin4.avif" target="comiket_viewer" class="gallery-item">
+                    <img src="../../Assets/fin4.avif" alt="Art Booths">
+                </a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

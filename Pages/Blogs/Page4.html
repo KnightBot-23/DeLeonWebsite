@@ -33,10 +33,10 @@
             font-size: 20px;
             line-height: 28px;
             color: var(--primary-color-100);
-            padding-top: 100px; /* Space for fixed nav */
+            padding-top: 100px; /* Matched to Media Page height */
         }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (REFINED TO MATCH MEDIA/MAP) --- */
         .site-nav {
             background: var(--header-bg);
             position: fixed;
@@ -45,12 +45,56 @@
             padding: 10px 10%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        .nav-logo { font-family: var(--font-heading); color: var(--header-text); text-decoration: none; font-size: 1.5rem; letter-spacing: 2px; }
+        .nav-logo { 
+            font-family: var(--font-heading); 
+            color: var(--header-text); 
+            text-decoration: none; 
+            font-size: 1.5rem; 
+            letter-spacing: 2px; 
+        }
+
         .nav-links { display: flex; gap: 10px; align-items: center; }
-        .site-nav a, .dropbtn { color: var(--header-text); padding: 10px 20px; text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.8rem; background: none; border: none; cursor: pointer; }
+
+        .site-nav a, .dropbtn { 
+            color: var(--header-text); 
+            padding: 10px 15px; 
+            text-decoration: none; 
+            font-family: var(--font-heading); 
+            text-transform: uppercase; 
+            font-size: 0.8rem; 
+            background: none; 
+            border: none; 
+            cursor: pointer; 
+        }
+        
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background: var(--base-color-200); right: 0; min-width: 160px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--accent-color-100); }
-        .dropdown-content a { color: var(--primary-color-100); padding: 12px; display: block; text-decoration: none; }
+
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background: var(--base-color-200); 
+            right: 0; 
+            min-width: 180px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+            border-top: 4px solid var(--accent-color-100); 
+            z-index: 2000; 
+        }
+
+        .dropdown-content a { 
+            color: var(--primary-color-100); 
+            padding: 15px 20px; 
+            display: block; 
+            text-decoration: none; 
+            font-family: var(--font-heading); 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+
+        .dropdown-content a:hover { 
+            background: var(--base-color-300); 
+            padding-left: 25px; 
+        }
+
         .dropdown:hover .dropdown-content { display: block; }
 
         /* --- BLOG CONTAINER --- */
@@ -163,16 +207,18 @@
 <body>
 
     <nav class="site-nav">
-        <a href="index.html" class="nav-logo">De Leon</a>
+        <a href="../../index.html" class="nav-logo">De Leon</a>
         <div class="nav-links">
-            <a href="index.html">Home</a>
+            <a href="../../index.html">Home</a>
             <div class="dropdown">
                 <button class="dropbtn">Blog Stories ▾</button>
                 <div class="dropdown-content">
-                    <a href="Page1.html">Blog 1</a>
-                    <a href="Page2.html">Blog 2</a>
-                    <a href="Page3.html">Blog 3</a>
+                    <a href="Page1.html">Java Frustrations</a>
+                    <a href="Page2.html">2 instrument</a>
+                    <a href="Page3.html">Dream Life</a>
+                    <a href="Page7.html">Dream Places</a>
                     <a href="Media.html">Media</a>
+                    <a href="Page8.html">Bucket List</a>
                 </div>
             </div>
         </div>
@@ -202,7 +248,7 @@
                 </div>
             </div>
             <div class="image-block">
-                <a href="../../Assets/lorien.jpg" target="_blank"><img src="../../Assets/lorien.jpg" alt="Lorien Testard" class="blog-img"></a>
+                <a href="../../Assets/testard2.jpg" target="_blank"><img src="../../Assets/testard2.jpg" alt="Lorien Testard" class="blog-img"></a>
                 <a href="../../Assets/tamer.jpg" target="_blank"><img src="../../Assets/tamer.jpg" alt="Album Art" class="blog-img"></a>
             </div>
         </div>
